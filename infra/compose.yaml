@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Containerfile
+    ports:
+      # Strictly bind to localhost for local-first security
+      - "127.0.0.1:8000:8000"
+    environment:
+      - SLOTHDESK_ROOT=/data
+      - SLOTHDESK_DATA_DIR=/app/.slothdesk_data
+      - LM_STUDIO_BASE_URL=http://host.containers.internal:1234/v1
+      - LM_STUDIO_MODEL=${LM_STUDIO_MODEL:-qwen2.5-7b-instruct}
+      - PLAN_EXPIRY_SECONDS=900
+      - HOST=0.0.0.0
+      - PORT=8000
+    volumes:
+      # Mount ONLY the dedicated test Downloads folder, never the entire home or root filesystem
+      - ${SLOTHDESK_HOST_DOWNLOADS:-../test_downloads}:/data:z
+      # Isolated persistent volume for audit manifests and cached plans
+      - slothdesk_manifests:/app/.slothdesk_data:z
+    security_opt:
+      - no-new-privileges:true
+    extra_hosts:
+      - "host.containers.internal:host-gateway"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Containerfile
+    ports:
+      # Strictly bind to localhost
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - backend
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+volumes:
+  slothdesk_manifests:

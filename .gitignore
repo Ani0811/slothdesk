@@ -1,0 +1,33 @@
+# Environments and dependencies
+.venv/
+venv/
+node_modules/
+frontend/node_modules/
+
+# Build artifacts
+frontend/dist/
+dist/
+build/
+*.egg-info/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# SlothDesk local testing data & manifests
+.slothdesk_data/
+.slothdesk/
+test_downloads/
+downloads/
+
+# Environment files
+.env
+.env.local
+
+# OS artifacts
+.DS_Store
+Thumbs.db
