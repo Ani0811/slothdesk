@@ -2,14 +2,16 @@
 title: "SlothDesk — Local-First AI Downloads Organizer: Less sorting. More living."
 published: false
 description: "A local-first AI-powered Downloads organizer with two-phase execution, smolagents, LM Studio inference, and zero overwrites."
-tags: devchallenge, opensource, ai, python, react
-cover_image: https://raw.githubusercontent.com/Ani0811/slothdesk/main/frontend/public/icons.svg
+tags: devchallenge, hf26challenge, ai, opensource
+cover_image: https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/slothdesk_banner.jpg
 canonical_url: https://github.com/Ani0811/slothdesk
 ---
 
 *This is a submission for the [DEV Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges).*
 
 ---
+
+![SlothDesk Banner](https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/slothdesk_banner.jpg)
 
 ## 🦥 What I Built
 
@@ -55,16 +57,32 @@ In SlothDesk, filesystem mutation is architecturally separated from AI reasoning
 
 ---
 
-## 📸 Demo & Walkthrough
+## 📸 Application Showcase & Screenshots
 
-Follow the complete 3-minute video walkthrough script in [`docs/DEMO_SCRIPT.md`](https://github.com/Ani0811/slothdesk/blob/main/docs/DEMO_SCRIPT.md).
+### 1. Dashboard Overview
+Inspect loose files in the Downloads folder, track storage volume, and verify the local inference engine status at a glance.
 
-### The SlothDesk Workflow
+![SlothDesk Dashboard Initial View](https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/dashboard_initial.png)
 
-1. **Scan & Propose (Read-Only)**: Click "Scan & Propose Plan". The dashboard inspects loose files and queries `smolagents` via LM Studio. Zero files are altered.
-2. **Review Rationale & Collisions**: The UI color-codes each proposed category (`Documents`, `Images`, `Code`, `Archives`, etc.) and displays the model's classification rationale and collision resolutions.
-3. **Explicit Approval Gate**: A confirmation modal details the safety checklist (0 files deleted, 0 files overwritten). Execution only proceeds upon explicit user confirmation.
-4. **Safe One-Click Undo**: Regret an organization? Click "Undo this Move" to instantly restore files to their exact original root locations.
+### 2. Read-Only AI Organization Proposal
+Clicking **Scan & Propose Plan** triggers `smolagents` via LM Studio. Every file receives a color-coded category badge, destination path preview, model rationale, and automatic collision resolution.
+
+![SlothDesk Proposed Plan](https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/proposed_plan.png)
+
+### 3. Explicit Approval Gate
+Zero files are altered until the user explicitly reviews the plan summary and safety checklist, confirming the moves in a dedicated modal dialog.
+
+![SlothDesk Approval Modal](https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/approval_modal.png)
+
+### 4. Downloads Inventory & Cryptographic Hashes
+Inspect all top-level files with real-time size metrics, extension detection, and SHA-256 verification hashes.
+
+![SlothDesk Downloads Inventory](https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/downloads_inventory.png)
+
+### 5. Execution History & One-Click Undo
+Every move produces an immutable JSON audit manifest. Click **Undo Operation** to instantly restore files back to their exact original root locations.
+
+![SlothDesk History & Undo](https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/history_undo.png)
 
 ---
 
@@ -92,7 +110,7 @@ A key requirement of SlothDesk is honesty:
 
 ## 🤖 AI Agent Session Transcript
 
-This application was implemented and tested pair-programming with Antigravity. To inspect the full, unedited developer trajectory and prompt history, view the embedded agent session below:
+This application was designed, implemented, and hardened pair-programming with Google Antigravity. To inspect the full, unedited developer trajectory and prompt history, view the embedded agent session below:
 
 {% agent_session 88a3c0ba-b758-4403-9da0-ffc6214a38a5 %}
 
@@ -104,3 +122,4 @@ This application was implemented and tested pair-programming with Antigravity. T
 - **License**: MIT
 - **Architecture Deep-Dive**: [`docs/ARCHITECTURE.md`](https://github.com/Ani0811/slothdesk/blob/main/docs/ARCHITECTURE.md)
 - **Security Testing Report**: [`docs/SECURITY_TESTING.md`](https://github.com/Ani0811/slothdesk/blob/main/docs/SECURITY_TESTING.md)
+- **Demo Walkthrough Script**: [`docs/DEMO_SCRIPT.md`](https://github.com/Ani0811/slothdesk/blob/main/docs/DEMO_SCRIPT.md)

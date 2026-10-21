@@ -7,6 +7,8 @@
 [![Vite](https://img.shields.io/badge/Vite-6.0+-646cff.svg)](https://vitejs.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+![SlothDesk Banner](docs/assets/slothdesk_banner.jpg)
+
 > A local-first, AI-powered desktop dashboard that rewards laziness by safely organizing your cluttered Downloads folder with minimal user effort.
 
 Built for the **DEV Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady**.
