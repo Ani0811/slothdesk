@@ -5,6 +5,7 @@ description: "A local-first AI-powered Downloads organizer with two-phase execut
 tags: devchallenge, hf26challenge, ai, opensource
 cover_image: https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/slothdesk_banner.jpg
 canonical_url: https://github.com/Ani0811/slothdesk
+ai_disclosure_level: some_ai
 ---
 
 *This is a submission for the [DEV Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges).*
@@ -112,7 +113,15 @@ A key requirement of SlothDesk is honesty:
 
 This application was designed, implemented, and hardened pair-programming with Google Antigravity. To inspect the full, unedited developer trajectory and prompt history, view the embedded agent session below:
 
-{% agent_session 88a3c0ba-b758-4403-9da0-ffc6214a38a5 %}
+<!-- Uncomment below if you have synced your session via DevRelay: -->
+<!-- {%% agent_session your_published_session_id %%} -->
+
+### Agent Workflow Trajectory:
+- **Architecture & Threat Modeling**: Designed two-phase execution lifecycle separating AI reasoning from filesystem mutations.
+- **Safety & Confinement**: Implemented path canonicalization, symlink rejection, and collision-safe renames (_1.ext).
+- **Agent Integration**: Harnessed smolagents.ToolCallingAgent with LM Studio (Qwen2.5-7B) and deterministic fallback.
+- **Full-Stack Dashboard**: Built React 19 + TypeScript interface with explicit approval modal gate.
+- **Testing**: 28 automated tests passing across planner, executor, API, and security suites.
 
 ---
 
