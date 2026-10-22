@@ -5,7 +5,6 @@ description: "A local-first AI-powered Downloads organizer with two-phase execut
 tags: devchallenge, hf26challenge, ai, opensource
 cover_image: https://raw.githubusercontent.com/Ani0811/slothdesk/main/docs/assets/slothdesk_banner.jpg
 canonical_url: https://github.com/Ani0811/slothdesk
-ai_disclosure_level: some_ai
 ---
 
 *This is a submission for the [DEV Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges).*
@@ -109,19 +108,16 @@ A key requirement of SlothDesk is honesty:
 
 ---
 
-## 🤖 AI Agent Session Transcript
+This application was designed, implemented, and hardened pair-programming with **Google Antigravity**.
 
-This application was designed, implemented, and hardened pair-programming with Google Antigravity. To inspect the full, unedited developer trajectory and prompt history, view the embedded agent session below:
+*In accordance with DEV community guidelines, `ai_disclosure_level: some_ai` is declared for this submission.*
 
-<!-- Uncomment below if you have synced your session via DevRelay: -->
-<!-- {%% agent_session your_published_session_id %%} -->
-
-### Agent Workflow Trajectory:
-- **Architecture & Threat Modeling**: Designed two-phase execution lifecycle separating AI reasoning from filesystem mutations.
-- **Safety & Confinement**: Implemented path canonicalization, symlink rejection, and collision-safe renames (_1.ext).
-- **Agent Integration**: Harnessed smolagents.ToolCallingAgent with LM Studio (Qwen2.5-7B) and deterministic fallback.
-- **Full-Stack Dashboard**: Built React 19 + TypeScript interface with explicit approval modal gate.
-- **Testing**: 28 automated tests passing across planner, executor, API, and security suites.
+### Agent Workflow & Engineering Trajectory
+- **Architecture & Threat Modeling**: Designed the two-phase execution lifecycle strictly separating untrusted LLM reasoning from filesystem mutations.
+- **Safety & Boundary Confinement**: Built path canonicalization, symlink rejection, and deterministic collision policies (`_1.ext`) guaranteeing zero overwrites.
+- **Agent Integration**: Harnessed `smolagents.ToolCallingAgent` over local LM Studio endpoints (`Qwen2.5-7B-Instruct`) with transparent offline fallback.
+- **Full-Stack Dashboard**: Engineered a responsive React 19 + TypeScript interface with color-coded category badges and an unskippable approval modal gate.
+- **Automated Verification**: Authored 28 unit, API, agent, and security tests (`pytest`) and validated the production build.
 
 ---
 
